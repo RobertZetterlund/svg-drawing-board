@@ -1,0 +1,25 @@
+body {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  background-color: #d8dee9;
+  grid-gap: 100px;
+}
+
+body * {
+  font-family: "Roboto Mono", monospace;
+  color: #2e3440;
+}
+
+textarea.input {
+  border-radius: 5px;
+  border-color: #3b4252;
+  min-width: 180px;
+  min-height: 60px;
+  padding: 10px;
+  background-color: #f0f2f5;
+}
+
+textarea.input:focus-within {
+  outline-color: #434c5e;
+}
