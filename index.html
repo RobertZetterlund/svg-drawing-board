@@ -6,16 +6,41 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
 </head>
 
 <body>
+    <section>
 
-    <textarea class="input"></textarea>
+        <div class="bg-text">
+            <p id='coords-x'></p>
+            <p id='coords-y'></p>
+        </div>
+
+        <textarea class="input"></textarea>
 
 
 
+
+
+    </section>
 
 
 </body>
+
+<script type='text/javascript'>
+
+    const xEl = document.getElementById('coords-x')
+    const yEl = document.getElementById('coords-y')
+
+
+    onmousemove = function ({ clientX, clientY }) {
+        xEl.innerHTML = clientX
+        yEl.innerHTML = clientY
+
+    }
+
+
+</script>
 
 </html>
