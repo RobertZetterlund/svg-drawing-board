@@ -2,6 +2,7 @@
 <html>
 
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel='stylesheet' href='style.css'>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -9,16 +10,12 @@
     <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
 </head>
 
-<body>
+<body data-content='23'>
     <section>
-
         <div class="bg-text">
             <p id='coords-x'></p>
             <p id='coords-y'></p>
         </div>
-
-
-
         <ul class="settings">
             <li class="settings-item">
                 <label for='bird-length-slider'>
@@ -43,8 +40,6 @@
         </svg>
 
     </section>
-
-
 </body>
 
 <script type='text/javascript'>
@@ -56,6 +51,9 @@
         xEl.innerHTML = clientX
         yEl.innerHTML = clientY
     }
+
+
+    document.body.setAttribute('data-content', new Date().getDate())
 </script>
 
 <script type='text/javascript'>

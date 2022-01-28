@@ -3,6 +3,34 @@ body {
   background-color: #d8dee9;
   margin: 0;
   position: relative;
+  background-image: radial-gradient(#e5e9f0 10%, transparent 10%);
+  background-size: 25px 25px;
+  overflow: hidden;
+}
+
+body::before {
+  position: absolute;
+  content: attr(data-content);
+  background-color: #bf616a;
+  width: clamp(50px, 10vw, 100px);
+  height: clamp(50px, 10vw, 100px);
+  top: 10px;
+  left: 10px;
+  color: #e5e9f0;
+  display: grid;
+  place-items: center;
+  font-size: clamp(40px, 8vw, 80px);
+}
+body::after {
+  position: absolute;
+  content: "";
+  top: -200px;
+  right: 0px;
+  border-left: solid 1px rgba(76, 86, 106, 0.6);
+  outline: solid 1px rgba(106, 120, 150, 0.7);
+  opacity: 0.7;
+  height: 500px;
+  transform: rotateZ(-63deg);
 }
 
 section {
@@ -91,19 +119,4 @@ ul.settings {
 .settings-item > label {
   text-align: left;
   font-size: 12px;
-}
-
-mark {
-  margin: 0 -0.4em;
-  padding: 0.1em 0.4em;
-  border-radius: 0.8em 0.3em;
-  background: transparent;
-  background-image: linear-gradient(
-    to right,
-    rgba(180, 142, 173, 0.1),
-    rgba(180, 142, 173, 0.7) 4%,
-    rgba(180, 142, 173, 0.3)
-  );
-  -webkit-box-decoration-break: clone;
-  box-decoration-break: clone;
 }
