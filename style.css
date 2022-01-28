@@ -45,15 +45,17 @@ svg {
 .path {
   stroke-dasharray: 1;
   stroke-dashoffset: 1;
-  stroke-width: 1.5px;
   stroke: #434c5e;
-  transition: stroke-dashoffset 2s cubic-bezier(0.215, 0.61, 0.355, 1);
+  stroke-linecap: round;
+  transition-property: stroke-dashoffset, width, visibility;
+  transition-duration: 2s;
+  transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 
 .slider {
   opacity: 0;
   animation: fadeIn 1s linear forwards;
-  animation-delay: 2s;
+  animation-delay: 0s;
 }
 @keyframes fadeIn {
   to {

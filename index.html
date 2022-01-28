@@ -7,9 +7,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
-
-
-
 </head>
 
 <body>
@@ -21,7 +18,8 @@
         </div>
 
 
-        <input type='range' min='0' max='100' value='100' class="slider" id='bird-slider'>
+        <input type='range' min='0' max='100' value='100' class="slider" id='bird-length-slider'>
+        <input type='range' min='0' max='100' value='20' class="slider" id='bird-width-slider'>
 
 
         <svg preserveAspectRatio='xMidYMid' viewBox="0 0 624 646" fill="none">
@@ -43,28 +41,45 @@
     onmousemove = function ({ clientX, clientY }) {
         xEl.innerHTML = clientX
         yEl.innerHTML = clientY
-
     }
 </script>
 
 <script type='text/javascript'>
-
-    const sliderEl = document.getElementById("bird-slider");
     const birdEl = document.getElementById('bird-path')
-
     setTimeout(() => {
         birdEl.style.strokeDashoffset = 0;
     }, 200)
 
-    sliderEl.oninput = () => {
-        birdEl.style.transitionDuration = '0.5s';
+    const lengthSliderEl = document.getElementById("bird-length-slider");
 
-
-        const val = sliderEl.value
+    const syncSliderLength = () => {
+        const val = lengthSliderEl.value
         const strokeDashOffset = Math.abs((parseInt(val) / 100) - 1).toFixed(2)
         birdEl.style.strokeDashoffset = strokeDashOffset
+        if (strokeDashOffset === '1.00') {
+            birdEl.style.visibility = 'hidden'
+        } else {
+            birdEl.style.visibility = 'visible'
+        }
     }
+    lengthSliderEl.oninput = () => {
+        birdEl.style.transitionDuration = '0.5s';
+        syncSliderLength()
+    }
+    syncSliderLength()
 
+
+    const widthSliderEl = document.getElementById("bird-width-slider");
+    const syncSliderWidth = () => {
+        const val = widthSliderEl.value
+        const strokeWidth = parseInt(val) / 10
+        birdEl.style.strokeWidth = strokeWidth + 'px'
+    }
+    widthSliderEl.oninput = () => {
+        syncSliderWidth();
+        birdEl.style.transitionDuration = '0.5s';
+    }
+    syncSliderWidth()
 </script>
 
 
