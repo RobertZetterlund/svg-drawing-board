@@ -1,16 +1,15 @@
 body {
   min-height: 100vh;
-
+  background-color: #d8dee9;
   margin: 0;
+  position: relative;
 }
 
 section {
-  min-height: 100vh;
   width: 100%;
+  min-height: 100vh;
   display: grid;
   place-items: center;
-  background-color: #d8dee9;
-  position: relative;
 }
 
 .bg-text {
@@ -19,7 +18,8 @@ section {
   left: 0;
   opacity: 0.5;
   font-size: 64px;
-  line-height: 75%;
+  pointer-events: none;
+
   z-index: 0;
   padding-inline: 12px;
   word-break: break-all;
@@ -37,16 +37,19 @@ body * {
   color: #2e3440;
 }
 
-textarea.input {
-  border-radius: 5px;
-  border-color: #3b4252;
-  min-width: 180px;
-  min-height: 60px;
-  padding: 10px;
-  background-color: #f0f2f5;
-  z-index: 1;
+.path {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: dash 2.5s ease-in forwards;
+  stroke-width: 1.5px;
+  stroke: #434c5e;
 }
 
-textarea.input:focus-within {
-  outline-color: #434c5e;
+@keyframes dash {
+  from {
+    stroke-dashoffset: 1;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
 }
