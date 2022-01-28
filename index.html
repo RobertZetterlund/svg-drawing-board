@@ -21,17 +21,14 @@
         </div>
 
 
+        <input type='range' min='0' max='100' value='100' class="slider" id='bird-slider'>
 
 
-        <svg width="624" height="646" viewBox="0 0 624 646" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path class='path' pathLength='1'
+        <svg preserveAspectRatio='xMidYMid' viewBox="0 0 624 646" fill="none">
+            <path class='path' pathLength='1' id='bird-path'
                 d="M311 271C257 87 371.5 0.500019 381 1.00002C390.5 1.50002 411 83.5 413.5 142.5C416 201.5 425 288 357.5 336.5C290 385 11.7251 226.118 3.00002 208C-5.72506 189.882 9 359 178 403C347 447 418 369 418 369L474 288C493.606 269.829 505.549 261.245 534 258C534 258 620 253 623 245C626 237 540 245 540 245C458.927 246.706 451.5 236 418 245C384.5 254 302 295.5 298 360C298 360 295 407 298 447C301 487 306.5 498 303.5 533C302.577 554.829 269.075 600.738 207 645C222.239 623.934 207 588 207 588C207 588 167.669 551.037 140.5 581C157.831 541.223 192.5 503 209.5 502C226.5 501 277.627 512.555 320 507C405.069 487.088 420.845 454.312 430 383"
                 stroke="black" />
         </svg>
-
-
-
-
 
     </section>
 
@@ -48,6 +45,26 @@
         yEl.innerHTML = clientY
 
     }
+</script>
+
+<script type='text/javascript'>
+
+    const sliderEl = document.getElementById("bird-slider");
+    const birdEl = document.getElementById('bird-path')
+
+    setTimeout(() => {
+        birdEl.style.strokeDashoffset = 0;
+    }, 200)
+
+    sliderEl.oninput = () => {
+        birdEl.style.transitionDuration = '0.5s';
+
+
+        const val = sliderEl.value
+        const strokeDashOffset = Math.abs((parseInt(val) / 100) - 1).toFixed(2)
+        birdEl.style.strokeDashoffset = strokeDashOffset
+    }
+
 </script>
 
 
