@@ -6,34 +6,35 @@ body {
   background-image: radial-gradient(#e5e9f0 10%, transparent 10%);
   background-size: 25px 25px;
   overflow: hidden;
-}
-body:before {
-  position: absolute;
-  content: attr(data-content);
-  background-color: #bf616a;
-  width: clamp(50px, 20vw, 200px);
-  height: clamp(50px, 20vw, 200px);
-  top: 10px;
-  left: 10px;
-  color: #e5e9f0;
-  display: grid;
-  place-items: center;
-  font-size: clamp(40px, 16vw, 160px);
-}
-body:after {
-  position: absolute;
-  content: "";
-  top: 0px;
-  right: -88px;
-  border-top: solid 1px rgba(76, 86, 106, 0.6);
-  outline: solid 1px rgba(106, 120, 150, 0.7);
-  opacity: 0.7;
-  width: 400px;
-  transform: rotateZ(56deg);
-}
-body * {
-  font-family: "Roboto Mono", monospace;
-  color: #2e3440;
+
+  &:before {
+    position: absolute;
+    content: attr(data-content);
+    background-color: #bf616a;
+    width: clamp(50px, 20vw, 200px);
+    height: clamp(50px, 20vw, 200px);
+    top: 10px;
+    left: 10px;
+    color: #e5e9f0;
+    display: grid;
+    place-items: center;
+    font-size: clamp(40px, 16vw, 160px);
+  }
+  &:after {
+    position: absolute;
+    content: "";
+    top: 0px;
+    right: -88px;
+    border-top: solid 1px rgba(76, 86, 106, 0.6);
+    outline: solid 1px rgba(106, 120, 150, 0.7);
+    opacity: 0.7;
+    width: 400px;
+    transform: rotateZ(56deg);
+  }
+  * {
+    font-family: "Roboto Mono", monospace;
+    color: #2e3440;
+  }
 }
 
 section {
@@ -50,15 +51,17 @@ section {
   opacity: 0.5;
   font-size: 64px;
   pointer-events: none;
+
   z-index: 0;
   padding-inline: 12px;
   word-break: break-all;
   white-space: normal;
   z-index: 0;
-}
-.bg-text p {
-  margin: 0;
-  font-family: "VT323", monospace;
+
+  p {
+    margin: 0;
+    font-family: "VT323", monospace;
+  }
 }
 
 svg {
@@ -88,6 +91,7 @@ svg {
     opacity: 1;
   }
 }
+
 @keyframes dash {
   from {
     stroke-dashoffset: 1;
@@ -96,6 +100,7 @@ svg {
     stroke-dashoffset: 0;
   }
 }
+
 ul.settings {
   display: grid;
   place-items: center;
@@ -108,10 +113,9 @@ ul.settings {
 .settings-item {
   display: grid;
   gap: 2px;
-}
-.settings-item label {
-  text-align: left;
-  font-size: 12px;
-}
 
-/*# sourceMappingURL=style.css.map */
+  label {
+    text-align: left;
+    font-size: 12px;
+  }
+}
