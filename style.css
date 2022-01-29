@@ -71,10 +71,13 @@ svg {
   stroke-dashoffset: 1;
   stroke: #434c5e;
   stroke-linecap: round;
-  transition-property: stroke-dashoffset, stroke-width, visibility;
+  transition-property: stroke-dashoffset, stroke-width, visibility, opacity;
   transition-duration: 2s;
   transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
   will-change: contents;
+}
+.path#elephant-path {
+  opacity: 0;
 }
 
 .slider {
@@ -109,9 +112,17 @@ ul.settings {
   display: grid;
   gap: 2px;
 }
-.settings-item label {
+
+label {
   text-align: left;
   font-size: 12px;
+}
+
+.checkbox-item {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 /*# sourceMappingURL=style.css.map */
